@@ -1,3 +1,19 @@
+
+<?php
+
+    echo "<pre>";
+    print_r ($_FILES);
+    echo "</pre>";
+
+   
+    move_uploaded_file($_FILES['file']['tmp_name'],"image/".$_FILES['file']['name']);
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +40,7 @@
 
  <div style="padding-top:50px;">
 
-    <form class="main">
-
+    <form class="main" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data"> 
             <h2 style="text-align: center;">Html Validate</h2>
 
         <div style="padding-left: 120px;">
@@ -51,7 +66,10 @@
 
 
             <label for="Comment"> Comment : </label>
-            <textarea required ></textarea ><br><br>
+            <textarea required name="textarea" ></textarea ><br><br> 
+
+            <lable>File:</lable>
+            <input type="file" name="file">
             
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
